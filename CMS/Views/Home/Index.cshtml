@@ -1,0 +1,77 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Customer List";
+}
+
+<h2>List of customers</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+<p>
+    <table class="table">
+        <tr>
+            <td>
+                Name: @Html.TextBox("SearchString")
+            </td>
+            <td>
+                Gender: @Html.DropDownList("Gender", "All")
+            </td>
+            <td>
+                City: @Html.DropDownList("City", "All")
+            </td>
+            <td>
+                Region: @Html.DropDownList("Region", "All")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last Purchase: @Html.TextBox("LastPurchaseFrom")
+            </td>
+            <td>
+                unitl: @Html.TextBox("LastPurchaseTo")
+            </td>
+            <td>
+                Classification: @Html.DropDownList("Classification", "All")
+            </td>
+            <td>
+                Seller: @Html.DropDownList("Seller", "All")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Search" />
+            </td>
+            <td colspan=3></td>
+        </tr>
+    </table>
+</p>
+    }
+    
+    <table class="table">
+        <tr>
+            <th>Classification</th>
+            <th>Customer</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>City</th>
+            <th>Region</th>
+            <th>Last Purchase</th>
+            <th>Seller</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Classification</td>
+                <td>@item.Name</td>
+                <td>@item.Phone</td>
+                <td>@item.Gender</td>
+                <td>@item.City</td>
+                <td>@item.Region</td>
+                <td>@item.LastPurchase</td>
+                <td>@item.Seller</td>
+            </tr>
+        }
+
+    </table>
