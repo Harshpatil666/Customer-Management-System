@@ -1,6 +1,6 @@
-# CustomerManagementSystem
+# Customer Management System
 
-This is a test project for learning purposes, do not share.
+This is a test project for learning purposes, do not share. :D
 
 Features:
 
